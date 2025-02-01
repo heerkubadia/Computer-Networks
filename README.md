@@ -34,7 +34,7 @@ In the second terminal, compile and run the sniffer:
 g++ sniffer.cpp -o sniffer -lpcap
 ./sniffer
 ```
-The sniffer will start capturing network packets in real-time and print out details to the terminal.
+"eth0" is hardcoded right now. If you wish to use another interface change it accordingly in the code directly. The sniffer will start capturing network packets in real-time and print out details to the terminal.
 
 
 ### Part 3: Clear Network Interface Traffic (Optional)
