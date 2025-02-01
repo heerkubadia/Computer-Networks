@@ -56,6 +56,7 @@ To get started with the analysis:
 2. Run the cells to process and analyze the captured `.pcap` file.
 
 ## Additional Tips
+- Turn off the wifi to avoid capturing extra packets.
 - Ensure that you have the necessary permissions to capture packets on your network interface. You may need `sudo` privileges for this.
 - Make sure that the `libpcap` library is installed on your system in order to compile the sniffer.
 
