@@ -31,7 +31,7 @@ eth0: This is the network interface we used. Replace it with the correct interfa
 
 In the second terminal, compile and run the sniffer:
 ```bash
-g++ snifbro.cpp -o sniffer -lpcap
+g++ sniffer.cpp -o sniffer -lpcap
 ./sniffer
 ```
 The sniffer will start capturing network packets in real-time and print out details to the terminal.
