@@ -44,7 +44,7 @@ void handle_packet(const struct pcap_pkthdr *header, const u_char *packet) {
 
 int main() {
     char errbuf[PCAP_ERRBUF_SIZE];
-    const char* interface = "lo0"; 
+    const char* interface = "eth0"; 
 
     pcap_t *capture_handle = pcap_open_live(interface, BUFSIZ, 1, 1000, errbuf);
     if (capture_handle == nullptr) {
