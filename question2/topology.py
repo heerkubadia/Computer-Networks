@@ -113,64 +113,8 @@ def run():
     print("\nNetwork started with NAT configured. Use CLI to interact.")
     CLI(net)
     
-    # Optional: Add testing functions similar to the first code
-    # You can uncomment and use these if needed
-    
-    """
-    output_a = ""
-    output_b = ""
-    output_c = ""
-    
-    print("\nTesting connectivity (each test runs 3 times with 30s interval):")
-
-    print("a) Test communication to an external host from an internal host")
-    for i in range(3):
-        result = h1.cmd('ping -c 4 10.0.0.6')
-        output_a += f"\n--- Test {i+1}/3: Ping h5 from h1 ---\n{result}"
-    for i in range(3):
-        result = h2.cmd('ping -c 4 10.0.0.4')
-        output_a += f"\n--- Test {i+1}/3: Ping h3 from h2 ---\n{result}"
-
-    print("b) Test communication to an internal host from an external host")
-    for i in range(3):
-        result = h8.cmd('ping -c 4 10.1.1.2')
-        output_b += f"\n--- Test {i+1}/3: Ping h1 from h8 ---\n{result}"
-    for i in range(3):
-        result = h6.cmd('ping -c 4 10.1.1.3')
-        output_b += f"\n--- Test {i+1}/3: Ping h2 from h6 ---\n{result}"
-
-    print("c) Iperf tests: 3 tests of 120s each")
-    output_c += "\n--- iPerf3 Test: h6 client -> h1 server ---\n"
-    h1.cmd('iperf3 -s -D')  # Start iperf3 server
-    time.sleep(2)
-    for i in range(3):
-        result = h6.cmd('iperf3 -c 10.1.1.2 -t 120')
-        output_c += f"\n--- iPerf3 Test {i+1}/3: h6 -> h1 ---\n{result}"
-        time.sleep(5)
-    h1.cmd('pkill iperf3')
-
-    output_c += "\n--- iPerf3 Test: h2 client -> h8 server ---\n"
-    h8.cmd('iperf3 -s -D')
-    time.sleep(2)
-    for i in range(3):
-        result = h2.cmd('iperf3 -c 10.0.0.9 -t 120')
-        output_c += f"\n--- iPerf3 Test {i+1}/3: h2 -> h8 ---\n{result}"
-        time.sleep(5)
-    h8.cmd('pkill iperf3')
-
-    # Write outputs to files
-    with open("output_a.txt", "w") as f:
-        f.write(output_a)
-
-    with open("output_b.txt", "w") as f:
-        f.write(output_b)
-
-    with open("output_c.txt", "w") as f:
-        f.write(output_c)
-    """
-    
     net.stop()
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     setLogLevel('info')
     run()
