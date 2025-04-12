@@ -1,6 +1,6 @@
 # CS331: Computer Networks – Assignment 3
 
-**Team Members:**  
+**Group 35 - Team Members:**  
 - **Member 1**: Heer Kubadia - 22110096  
 - **Member 2**: Lavanya - 22110130  
 
