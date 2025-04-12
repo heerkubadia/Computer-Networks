@@ -1,14 +1,14 @@
 # CS331: Computer Networks – Assignment 3
 
 **Team Members:**  
-- **Member 1**: Your Name (Roll Number)  
-- **Member 2**: Partner's Name (Roll Number)  
+- **Member 1**: Heer Kubadia - 22110096  
+- **Member 2**: Lavanya - 22110130  
 
 **Submission Deadline:** 12-Apr-2025, 11:59 PM  
 
 ---
 
-## 📘 Assignment Overview
+## Assignment Overview
 
 This assignment focuses on three core areas of computer networking:
 
@@ -19,36 +19,14 @@ This assignment focuses on three core areas of computer networking:
    You will modify the existing network by introducing NAT functionality in a host (H9), allowing private IP addresses to access external networks. You will then verify NAT translation with both ping and bandwidth tests using `iperf3`, and configure iptables rules manually.
 
 3. **Routing Algorithm Implementation (Q3):**  
-   This section requires implementing and testing classic routing algorithms like Dijkstra’s or Bellman-Ford in a simulated Mininet environment. You’ll analyze routing tables, verify path selection, and demonstrate correct behavior through test cases and visual confirmation.
+   This section requires implementing and testing classic routing algorithms like Bellman-Ford in a simulated Mininet environment. You’ll analyze routing tables, verify path selection, and demonstrate correct behavior through test cases and visual confirmation.
 
-Each question is supported by Python scripts for Mininet, shell scripts for NAT, and PDF reports documenting test results, analysis, screenshots, and performance metrics.
+Each question is supported by Python scripts for Mininet, shell scripts for NAT, and PDF report documenting complete instructions, test results, analysis, screenshots, and performance metrics.
 
----
-
-## 📁 Directory Structure
-
-```
-.
-├── Q1_Loops/
-│   ├── topology_q1.py
-│   ├── q1_analysis_report.pdf
-│   └── packet_captures/
-├── Q2_NAT/
-│   ├── topology_q2.py
-│   ├── nat_rules.sh
-│   ├── q2_analysis_report.pdf
-│   └── iperf_results/
-├── Q3_Routing/
-│   ├── topology_q3.py
-│   ├── routing_algo.py
-│   ├── q3_analysis_report.pdf
-│   └── routing_tables/
-├── README.md
-```
 
 ---
 
-## 🧪 Requirements
+## Requirements
 
 - Mininet (>=2.3.0)  
 - iperf3  
@@ -58,13 +36,13 @@ Each question is supported by Python scripts for Mininet, shell scripts for NAT,
 
 ---
 
-## ⚙️ How to Run
+##  How to Run (Note - Please refer to the report for detailed instructions)
 
 ### Q1: Network Loops
 
 ```bash
-cd Q1_Loops
-sudo python3 topology_q1.py
+cd question1
+sudo python3 topology.py
 ```
 
 - Run the following pings:
@@ -80,14 +58,11 @@ sudo python3 topology_q1.py
 ### Q2: Host-based NAT
 
 ```bash
-cd Q2_NAT
-sudo python3 topology_q2.py
+cd question2
+sudo python3 topology.py
 ```
 
-- Configure NAT on `h9`:
-  ```bash
-  sudo ./nat_rules.sh
-  ```
+- Configure NAT on `h9`
 
 - **Ping Tests:**
   - h1 → h5
@@ -104,7 +79,7 @@ sudo python3 topology_q2.py
 ### Q3: Network Routing
 
 ```bash
-cd Q3_Routing
+cd question3
 sudo python3 topology_q3.py
 ```
 
@@ -117,14 +92,11 @@ sudo python3 topology_q3.py
 
 ---
 
-## 📄 Reports
+## Report
 
-Each subdirectory contains a corresponding PDF report:
-- `q1_analysis_report.pdf`
-- `q2_analysis_report.pdf`
-- `q3_analysis_report.pdf`
-
-These reports include:
+35_22110096_22110130.pdf is the complete report for all the questions.
+This report include:
+- Complete step by step instructions for executing the codes
 - Topology diagrams
 - Packet captures and NAT rules
 - Routing tables and metrics
@@ -132,7 +104,7 @@ These reports include:
 
 ---
 
-## ✅ Notes
+## Notes
 
 - All tests were run multiple times for consistency.
 - Ensure Mininet is run with `sudo` to avoid permission issues.
