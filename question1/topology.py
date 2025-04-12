@@ -1,9 +1,15 @@
 from mininet.topo import Topo
 from mininet.net import Mininet
-from mininet.node import OVSSwitch, RemoteController
+from mininet.node import OVSSwitch
 from mininet.cli import CLI
 from mininet.link import TCLink
 from mininet.log import setLogLevel
+
+# Custom switch class that disables controller dependency
+class StandaloneOVSSwitch(OVSSwitch):
+    def start(self, controllers):
+        # Override default to start without controllers
+        return super().start([])
 
 class LoopTopo(Topo):
     def build(self):
@@ -37,12 +43,19 @@ class LoopTopo(Topo):
 
 def run():
     topo = LoopTopo()
-    net = Mininet(topo=topo, switch=OVSSwitch, controller=None, autoSetMacs=True)
+    net = Mininet(
+        topo=topo,
+        switch=StandaloneOVSSwitch,
+        controller=None,
+        autoSetMacs=True
+    )
     net.start()
+
+    # Enable STP on each bridge
+    for sw in ['s1', 's2', 's3', 's4']:
+        net.get(sw).cmd(f'ovs-vsctl set Bridge {sw} stp_enable=true')
+        net.get(sw).cmd(f'ovs-vsctl set-fail-mode {sw} standalone')
+        print(f'STP enabled on {sw}')
+
     print("Network started. Use CLI to interact.")
     CLI(net)
-    net.stop()
-
-if __name__ == '__main__':
-    setLogLevel('info')
-    run()
