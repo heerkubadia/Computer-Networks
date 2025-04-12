@@ -78,15 +78,28 @@ sudo python3 topology.py
 
 ### Q3: Network Routing
 
+- Navigate to the project directory
 ```bash
 cd question3
-sudo python3 topology_q3.py
 ```
 
-- Run the routing algorithm script:
-  ```bash
-  python3 routing_algo.py
-  ```
+- Compile the code:
+ ```bash
+gcc distance_vector.c node0.c node1.c node2.c node3.c -o distance_vector_final
+```
+- Run the simulation
+```bash
+./distance_vector_final
+```
+- Enter the trace value when prompted:
+You will be asked to enter a **trace value**:
+- `0` → No tracing output.
+- `1` or `2` → Displays useful debug information including:
+  - When packets are sent/received
+  - Changes in distance tables
+  - Node updates and triggers
+- `>2` → Displays verbose debug info (for emulator debugging)
+
 
 - Inspect routing tables and validate correct path selection.
 
